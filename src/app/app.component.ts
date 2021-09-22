@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
     this.initializeForm();
   }
 
-  initializeForm(): void {
+  initializeForm() {
     this.volunteerForm = this.fb.group({
       name: 'Name here',
       phoneNumber: '',
@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
     })
   }
 
-  onSumbit(): void {
+  onSumbit() {
     console.log(this.volunteerForm);
 
   }
@@ -40,17 +40,17 @@ export class AppComponent implements OnInit {
     return this.volunteerForm.get('references') as FormArray;
   }
 
-  selectLocation(event: any): void {
+  selectLocation(event: any) {
     this.volunteerForm.patchValue({
       preferredLocation: event.target.value
     })
   }
 
-  addEmail(): void {
+  addEmail() {
     this.references.push(this.fb.control(''));
   }
 
-  removeEmail(index: number): void {
+  removeEmail(index: number) {
     this.references.removeAt(index);
   }
 }
